@@ -20,6 +20,10 @@ class Sesh < ActiveRecord::Base
 		@ended_at
 	end
 
+	def self.length
+		@sesh_length = @ended_at - @created_at
+	end
+
 	def self.create(name, created_at, ended_at)
 		sesh = Sesh.new(name, created_at, ended_at)
 		@@all << sesh
