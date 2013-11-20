@@ -1,0 +1,24 @@
+<h2>Listing seshes</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Session</th>
+      <th>Ended at</th>
+      <th>Tracs</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seshes.each do |sesh| %>
+      <tr>
+        <td><%= sesh.name %></td>
+        <td><%= sesh.ended_at %></td>
+        <td> #INSERT WITH TRACS </td>
+        
+        <td><%= link_to 'Delete', sesh, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

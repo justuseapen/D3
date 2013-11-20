@@ -5,10 +5,23 @@
   <%= @sesh.name %>
 </p>
 
-<p>
-  <strong>Ended at:</strong>
-  <%= @sesh.ended_at %>
-</p>
+<%= form_for(@sesh) do |f| %>
 
-<%= link_to 'Edit', edit_sesh_path(@sesh) %> |
-<%= link_to 'Back', seshes_path %>
+	<% if @sesh.id %>
+    <div class="field">
+      <strong>Ended at:</strong><br>
+      <%= @sesh.ended_at %>
+    </div>
+    <div class="actions">
+    	<%= f.submit "END SESH BRO" %>
+    </div>
+  <% end %>
+
+<% end %>
+
+#insert tracks tally here.
+
+<%= link_to 'Back', root_path %>
+
+
+

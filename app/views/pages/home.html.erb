@@ -1,6 +1,10 @@
 <h1>disTRACted</h1>
 <% if user_signed_in? %>
           # Display session starter
+
+          <%= render './seshes/form' %>
+          <%= render './seshes/index' %>
+
      <% else %>
        <p>
          <%= link_to "Log in", new_user_session_path %>

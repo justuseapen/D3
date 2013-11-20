@@ -16,12 +16,16 @@
     <%= f.text_field :name %>
   </div>
   <% if @sesh.id %>
-  <div class="field">
-    <%= f.label :ended_at %><br>
-    <%= f.datetime_select :ended_at %>
-  </div>
-  <% end %>
-  <div class="actions">
+    <div class="field">
+      Ended at:<br>
+      <%= @sesh.ended_at %>
+    </div>
+    <div class="actions">
+    <%= f.submit "END SESH BRO" %>
+    </div>
+  <% else %>
+      <div class="actions">
     <%= f.submit %>
-  </div>
+  <% end %>
+
 <% end %>

@@ -10,6 +10,7 @@ class SeshesController < ApplicationController
   # GET /seshes/1
   # GET /seshes/1.json
   def show
+    @sesh
   end
 
   # GET /seshes/new
@@ -19,6 +20,7 @@ class SeshesController < ApplicationController
 
   # GET /seshes/1/edit
   def edit
+    @sesh
   end
 
   # POST /seshes
@@ -26,28 +28,22 @@ class SeshesController < ApplicationController
   def create
     @sesh = Sesh.new(sesh_params)
 
-    respond_to do |format|
-      if @sesh.save
-        format.html { redirect_to @sesh, notice: 'Sesh was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @sesh }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @sesh.errors, status: :unprocessable_entity }
-      end
+    if @sesh.update(sesh_params)
+      redirect_to @sesh, notice: 'Sesh was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
   # PATCH/PUT /seshes/1
   # PATCH/PUT /seshes/1.json
   def update
-    respond_to do |format|
-      if @sesh.update(sesh_params)
-        format.html { redirect_to @sesh, notice: 'Sesh was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @sesh.errors, status: :unprocessable_entity }
-      end
+    @sesh.ended_at = Time.now
+
+    if @sesh.save
+      redirect_to root_path, notice: 'Sesh was successfully ended.'
+    else
+      render action: 'edit'
     end
   end
 
