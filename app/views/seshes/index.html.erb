@@ -1,0 +1,29 @@
+<h1>Listing seshes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Ended at</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @seshes.each do |sesh| %>
+      <tr>
+        <td><%= sesh.name %></td>
+        <td><%= sesh.ended_at %></td>
+        <td><%= link_to 'Show', sesh %></td>
+        <td><%= link_to 'Edit', edit_sesh_path(sesh) %></td>
+        <td><%= link_to 'Destroy', sesh, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sesh', new_sesh_path %>

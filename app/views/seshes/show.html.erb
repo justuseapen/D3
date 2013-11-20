@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sesh.name %>
+</p>
+
+<p>
+  <strong>Ended at:</strong>
+  <%= @sesh.ended_at %>
+</p>
+
+<%= link_to 'Edit', edit_sesh_path(@sesh) %> |
+<%= link_to 'Back', seshes_path %>
