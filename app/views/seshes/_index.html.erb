@@ -4,7 +4,9 @@
   <thead>
     <tr>
       <th>Session</th>
+      <th>Began at</th>
       <th>Ended at</th>
+      <th>Duration</th>
       <th>Tracs</th>
       <th></th>
     </tr>
@@ -14,8 +16,11 @@
     <% @seshes.each do |sesh| %>
       <tr>
         <td><%= sesh.name %></td>
-        <td><%= sesh.ended_at %></td>
-        <td> #INSERT WITH TRACS </td>
+        <td><%= sesh.created_at.strftime("%m/%d/%Y @%I:%M%P") %></td>
+        <td><%= sesh.ended_at.strftime("%m/%d/%Y @%I:%M%P") %></td>
+        <td><%= sesh.length %></td>
+
+        <td> #INSERT TRACS </td>
         
         <td><%= link_to 'Delete', sesh, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
