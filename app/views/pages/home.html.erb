@@ -1,13 +1,20 @@
-<h1>disTRACted</h1>
 <% if user_signed_in? %>
-          # Display session starter
+	<h1>disTRACted</h1>
+	<h4>get focused</h4>
 
-          <%= render './seshes/form' %>
-          <%= render './seshes/index' %>
+	# Display session starter
 
-     <% else %>
-       <p>
-         <%= link_to "Log in", new_user_session_path %>
-         <%= link_to "Sign up", new_user_registration_path %>
-       </p>
-  <% end %>  
+	<%= render './seshes/form' %>
+	<%= render './seshes/index' %>
+
+<% else %>
+	<div class="jumbotron">
+		<h1>disTRACted</h1>
+		<h4>get focused</h4>
+	
+		<ul class="nav nav-pills">
+			<li><%= link_to "Log in", new_user_session_path %></li>
+			<li><%= link_to "Sign up", new_user_registration_path %></li>
+		</ul>
+	</div>
+<% end %>  
