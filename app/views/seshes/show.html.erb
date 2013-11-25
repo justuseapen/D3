@@ -8,10 +8,6 @@
 <%= form_for(@sesh) do |f| %>
 
 	<% if @sesh.id %>
-    <div class="field">
-      <strong>Ended at:</strong><br>
-      <%= @sesh.ended_at %>
-    </div>
     <div class="actions">
     	<%= f.submit "END SESH BRO" %>
     </div>
