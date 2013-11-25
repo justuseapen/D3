@@ -1,21 +1,21 @@
 class SeshesController < ApplicationController
-  before_action :set_sesh, only: [:show, :edit, :update, :destroy]
+  before_action :set_sesh,:authenticate_user!, except: [:index, :show], only: [:show, :edit, :update, :destroy]
 
   # GET /seshes
   # GET /seshes.json
   def index
-    @seshes = Sesh.all
+    @seshes = current_user.seshes
   end
 
   # GET /seshes/1
   # GET /seshes/1.json
   def show
-    @sesh
+    @sesh = Sesh.find(params[:id])
   end
 
   # GET /seshes/new
   def new
-    @sesh = Sesh.new
+    @sesh = current_user.Sesh.build
   end
 
   # GET /seshes/1/edit
@@ -26,7 +26,7 @@ class SeshesController < ApplicationController
   # POST /seshes
   # POST /seshes.json
   def create
-    @sesh = Sesh.new(sesh_params)
+    @sesh = current_user.seshes.build(sesh_params)
 
     if @sesh.update(sesh_params)
       redirect_to @sesh, notice: 'Sesh was successfully created.'
@@ -58,13 +58,13 @@ class SeshesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sesh
-      @sesh = Sesh.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_sesh
+    @sesh = Sesh.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def sesh_params
-      params.require(:sesh).permit(:name, :ended_at)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def sesh_params
+    params.require(:sesh).permit(:name, :ended_at)
+  end
 end

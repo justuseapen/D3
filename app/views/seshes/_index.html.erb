@@ -17,9 +17,9 @@
     <% @seshes.each do |sesh| %>
       <tr>
         <td><%= sesh.name %></td>
-        <td><%= sesh.created_at %></td>
-        <td><%= sesh.ended_at %></td>
-        <td>Session Length</td>
+        <td><%= sesh.created_at.strftime("%m/%d/%Y @%I:%M%P") %></td>
+        <td><%= sesh.ended_at.strftime("%m/%d/%Y @%I:%M%P") %></td>
+        <td>length</td>
         <td> #INSERT WITH TRACS </td>
         
         <td><%= link_to 'Delete', sesh, method: :delete, data: { confirm: 'Are you sure?' } %></td>

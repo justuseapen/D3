@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def home
   	@sesh = Sesh.new
-  	@seshes = Sesh.all
+  	if user_signed_in?
+  		@seshes = current_user.seshes
+  	end
   end
 end

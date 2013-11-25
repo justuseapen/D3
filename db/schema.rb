@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120165340) do
+ActiveRecord::Schema.define(version: 20131123180217) do
 
   create_table "seshes", force: true do |t|
     t.string   "name"
     t.datetime "ended_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  add_index "seshes", ["user_id"], name: "index_seshes_on_user_id"
+
+  create_table "tracs", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
