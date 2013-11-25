@@ -1,4 +1,6 @@
 D::Application.routes.draw do
+  resources :tracs
+
   resources :seshes
 
   # devise_for :users

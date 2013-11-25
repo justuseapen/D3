@@ -1,0 +1,21 @@
+<%= form_for(@trac) do |f| %>
+  <% if @trac.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@trac.errors.count, "error") %> prohibited this trac from being saved:</h2>
+
+      <ul>
+      <% @trac.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sesh_id %><br>
+    <%= f.text_field :sesh_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -5,12 +5,15 @@ class SeshesController < ApplicationController
   # GET /seshes.json
   def index
     @seshes = current_user.seshes
+    @tracs = current_sesh.tracs
   end
 
   # GET /seshes/1
   # GET /seshes/1.json
   def show
     @sesh = Sesh.find(params[:id])
+    @tracs
+    @trac
   end
 
   # GET /seshes/new

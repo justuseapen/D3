@@ -8,9 +8,12 @@
 <%= form_for(@sesh) do |f| %>
 
 	<% if @sesh.id %>
+  <div class="btn">
+    <%= link_to "Add Tracs to this session!", new_trac_path %>
+  </div>
     <div class="actions">
     	<%= f.submit "END SESH BRO" %>
-    </div>
+          </div>
   <% end %>
 
 <% end %>

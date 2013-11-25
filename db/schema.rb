@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131123180217) do
+ActiveRecord::Schema.define(version: 20131125184414) do
 
   create_table "seshes", force: true do |t|
     t.string   "name"
@@ -24,9 +24,12 @@ ActiveRecord::Schema.define(version: 20131123180217) do
   add_index "seshes", ["user_id"], name: "index_seshes_on_user_id"
 
   create_table "tracs", force: true do |t|
+    t.integer  "sesh_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tracs", ["sesh_id"], name: "index_tracs_on_sesh_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
