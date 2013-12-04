@@ -18,8 +18,20 @@
       <tr>
         <td><%= sesh.name %></td>
         <td><%= sesh.created_at.strftime("%m/%d/%Y @%I:%M%P") %></td>
-        <td><%= sesh.ended_at.strftime("%m/%d/%Y @%I:%M%P") %></td>
-        <td><%= sesh.length %> minutes</td>
+        <td>
+        <% if sesh.ended_at.nil? %>
+        SESSION IN PROGRESS
+        <% else %>
+        <%= sesh.ended_at.strftime("%m/%d/%Y @%I:%M%P") %>
+        <% end %>
+        </td>
+        <td>
+        <% if sesh.length.nil? %> 
+        EMPTY
+        <% else %>
+        <%= sesh.length %> minutes
+        <% end %>
+        </td>
         <td> #INSERT WITH TRACS </td>
         
         <td><%= link_to 'Delete', sesh, method: :delete, data: { confirm: 'Are you sure?' } %></td>
