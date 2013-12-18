@@ -38,6 +38,15 @@ end
 
 group :development do
 	gem 'better_errors'
+	gem 'meta_request'
+end
+
+group :test, :development do
+	gem 'capybara'
+	gem 'rspec-rails'
+	gem 'factory_girl_rails'
+	gem 'valid_attribute'
+	gem 'shoulda-matchers'
 end
 
 
